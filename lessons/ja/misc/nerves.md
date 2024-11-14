@@ -1,28 +1,29 @@
 %{
-  version: "1.1.2",
-  title: "Nerves",
-  excerpt: """
-  """
+version: "1.1.2",
+title: "Nerves",
+excerpt: """
+"""
 }
+
 ---
 
 ## はじめに
 
-このレッスンではNervesについて話します。Nervesプロジェクトは組込みソフトウェア開発にElixirを使用するためのフレームワークです。Nervesのウェブサイトにあるように、それはあなたが「Elixirで、安全な組み込みソフトウェアを作り、そして展開する」ことを可能にします。このレッスンは他のElixir Schoolのレッスンとは少し異なります。上級者向けのシステム設定と追加のハードウェアの両方が必要になるため、Nervesを習得するのは初心者には難しいかもしません。
+このレッスンでは Nerves について話します。Nerves プロジェクトは組込みソフトウェア開発に Elixir を使用するためのフレームワークです。Nerves のウェブサイトにあるように、それはあなたが「Elixir で、安全な組み込みソフトウェアを作り、そして展開する」ことを可能にします。このレッスンは他の Elixir School のレッスンとは少し異なります。上級者向けのシステム設定と追加のハードウェアの両方が必要になるため、Nerves を習得するのは初心者には難しいかもしません。
 
-Nervesを使って組み込み向けのコードを書くためには、 [サポート対象のハードウェア](https://hexdocs.pm/nerves/supported-targets.html) のいずれかと、お好みのハードウェアでサポートされているメモリカードのカードリーダーと、ネットワーク越しにデバイスにアクセスするための有線ネットワーク接続が必要です。
+Nerves を使って組み込み向けのコードを書くためには、 [サポート対象のハードウェア](https://hexdocs.pm/nerves/supported-targets.html) のいずれかと、お好みのハードウェアでサポートされているメモリカードのカードリーダーと、ネットワーク越しにデバイスにアクセスするための有線ネットワーク接続が必要です。
 
-ただし、Raspberry Piには制御可能なLEDが搭載されているため、Raspberry Piを使用することをお勧めします。IExを使用したデバッグが簡単になるため、モニタをターゲットデバイスに接続することをお勧めします。
+ただし、Raspberry Pi には制御可能な LED が搭載されているため、Raspberry Pi を使用することをお勧めします。IEx を使用したデバッグが簡単になるため、モニタをターゲットデバイスに接続することをお勧めします。
 
 ## セットアップ
 
-Nervesプロジェクト自体は優れた [Getting started guide](https://hexdocs.pm/nerves/getting-started.html) を持っていますが、一部のユーザーにとっては情報量が圧倒的なものかもしれません。代わりに、このチュートリアルでは「言葉を減らし、コードを増やす」ことを試みます。
+Nerves プロジェクト自体は優れた [Getting started guide](https://hexdocs.pm/nerves/getting-started.html) を持っていますが、一部のユーザーにとっては情報量が圧倒的なものかもしれません。代わりに、このチュートリアルでは「言葉を減らし、コードを増やす」ことを試みます。
 
-まず、環境設定が必要になります。このガイドは、Nerves wikiの [Installation](https://hexdocs.pm/nerves/installation.html) にあります。ガイドに記載されているOTPとElixirの両方のバージョンが同じであることを確認してください。正しいバージョンを使用しないと、進行中に問題が発生する可能性があります。これを書いている時点では、どのElixir（Erlang/OTP 21でコンパイルされたもの）でも動作するはずです。
+まず、環境設定が必要になります。このガイドは、Nerves wiki の [Installation](https://hexdocs.pm/nerves/installation.html) にあります。ガイドに記載されている OTP と Elixir の両方のバージョンが同じであることを確認してください。正しいバージョンを使用しないと、進行中に問題が発生する可能性があります。これを書いている時点では、どの Elixir（Erlang/OTP 21 でコンパイルされたもの）でも動作するはずです。
 
-セットアップが完了したら、最初のNervesプロジェクトを構築する準備が整いました!
+セットアップが完了したら、最初の Nerves プロジェクトを構築する準備が整いました!
 
-今回の私たちの目標は、組み込み開発の「Hello world」、つまり単純なHTTP APIを呼び出すことによってLEDの点滅を制御することです。
+今回の私たちの目標は、組み込み開発の「Hello world」、つまり単純な HTTP API を呼び出すことによって LED の点滅を制御することです。
 
 ## プロジェクトを作成する
 
@@ -60,7 +61,7 @@ above for more information and other targets.
 
 プロジェクトは生成され、テスト装置を点滅させる準備ができています！早速試してみましょう!
 
-Raspberry Pi 3の場合、 `MIX_TARGET=rpi3` を設定しますが、ハードウェアに応じて、これをあなたが持っているハードウェアに合うように変更することができます。([Nerves documentation](https://hexdocs.pm/nerves/targets.html#content) を参照)
+Raspberry Pi 3 の場合、 `MIX_TARGET=rpi3` を設定しますが、ハードウェアに応じて、これをあなたが持っているハードウェアに合うように変更することができます。([Nerves documentation](https://hexdocs.pm/nerves/targets.html#content) を参照)
 
 まず依存関係を設定しましょう:
 
@@ -107,13 +108,13 @@ Elapsed time: 8.022 s
 
 これで、メモリカードをデバイスに挿入して動作するかどうかを確認します。
 
-画面が接続されている場合、このメモリカードを挿入した状態でデバイスの電源を入れた後に、Linuxの起動シーケンスが表示されるはずです。
+画面が接続されている場合、このメモリカードを挿入した状態でデバイスの電源を入れた後に、Linux の起動シーケンスが表示されるはずです。
 
 ## ネットワークの設定
 
-次のステップはネットワークを設定することです。Nervesのエコシステムはさまざまなパッケージを提供しています。[vintage_net](https://github.com/nerves-networking/vintage_net) は、有線イーサネットポートを介してデバイスをネットワークに接続するために必要なものです。
+次のステップはネットワークを設定することです。Nerves のエコシステムはさまざまなパッケージを提供しています。[vintage_net](https://github.com/nerves-networking/vintage_net) は、有線イーサネットポートを介してデバイスをネットワークに接続するために必要なものです。
 
-あなたのプロジェクトにはすでに [`nerves_pack`](https://github.com/nerves-project/nerves_pack) が依存関係として存在しています。しかし、デフォルトではDHCPを使います（ `config/target.exs` の中の `config :vintage_net` の後の設定内容を確認してください）。静的IPアドレスを持つ方が簡単です。
+あなたのプロジェクトにはすでに [`nerves_pack`](https://github.com/nerves-project/nerves_pack) が依存関係として存在しています。しかし、デフォルトでは DHCP を使います（ `config/target.exs` の中の `config :vintage_net` の後の設定内容を確認してください）。静的 IP アドレスを持つ方が簡単です。
 
 静的ネットワークを設定するには、 `config/target.exs` 内の `:vintage_net` 設定を更新する必要があります:
 
@@ -138,9 +139,9 @@ config :vintage_net,
   ]
 ```
 
-この設定は有線接続の設定のみを更新します。WiFiを使用したい場合は、 [VintageNet Cookbook](https://hexdocs.pm/vintage_net/cookbook.html#wifi) を参照してください。
+この設定は有線接続の設定のみを更新します。WiFi を使用したい場合は、 [VintageNet Cookbook](https://hexdocs.pm/vintage_net/cookbook.html#wifi) を参照してください。
 
-ここであなたのローカルネットワークパラメータを使う必要があることに注意してください。私のネットワークでは割り当てられていないIP `192.168.88.2` があるので、これを使用します。しかし、あなたの場合、IPアドレスは違うかもしれません。
+ここであなたのローカルネットワークパラメータを使う必要があることに注意してください。私のネットワークでは割り当てられていない IP `192.168.88.2` があるので、これを使用します。しかし、あなたの場合、IP アドレスは違うかもしれません。
 
 これを変更した後、私たちは `mix firmware.burn` を通してファームウェアの変更されたバージョンを書き込んで、それから新しいカードで装置を起動する必要があります。
 
@@ -157,27 +158,27 @@ Request timeout for icmp_seq 207
 
 ## ネットワーク経由のファームウェアの書き込み
 
-これまでのところ、私達はSDカードに書き込んで、物理的にそれらを私達のハードウェアにロードしてきました。これは最初は問題ありませんが、ネットワーク経由で更新する方が簡単です。 [`ssh_subsystem_fwup`](https://github.com/nerves-project/ssh_subsystem_fwup) パッケージはまさにそれをしてくれます。プロジェクトにはデフォルトですでに設定されていて、 `~/.ssh` ディレクトリ内のSSHキーを自動検出して見つけるように構成されています。
+これまでのところ、私達は SD カードに書き込んで、物理的にそれらを私達のハードウェアにロードしてきました。これは最初は問題ありませんが、ネットワーク経由で更新する方が簡単です。 [`ssh_subsystem_fwup`](https://github.com/nerves-project/ssh_subsystem_fwup) パッケージはまさにそれをしてくれます。プロジェクトにはデフォルトですでに設定されていて、 `~/.ssh` ディレクトリ内の SSH キーを自動検出して見つけるように構成されています。
 
 ネットワーク経由のファームウェアアップデート機能を使うためには、 `mix firmware.gen.script` を通してアップロードスクリプトを生成する必要があります。このコマンドはファームウェアを更新するために実行できる新しい `upload.sh` スクリプトを生成します。
 
 前の手順を実行してネットワークが機能している場合は、問題ないので次に進みます。
 
-設定を更新するための最も簡単な方法は `mix firmware && ./upload.sh 192.168.88.2` を使うことです。最初のコマンドは更新されたファームウェアを作成し、二番目のコマンドはそれをネットワーク経由でプッシュしてデバイスを再起動します。SDカードをデバイスに出し入れする必要がなくなります!
+設定を更新するための最も簡単な方法は `mix firmware && ./upload.sh 192.168.88.2` を使うことです。最初のコマンドは更新されたファームウェアを作成し、二番目のコマンドはそれをネットワーク経由でプッシュしてデバイスを再起動します。SD カードをデバイスに出し入れする必要がなくなります!
 
-_ヒント： `ssh 192.168.88.2` はアプリのコンテキストでデバイスにIExシェルを提供します。_
+_ヒント： `ssh 192.168.88.2` はアプリのコンテキストでデバイスに IEx シェルを提供します。_
 
-_トラブルシューティング：ホームフォルダにsshキーが存在しない場合は、 `No SSH public keys found in ~/.ssh.` というエラーが表示されます。この場合、 `ssh-keygen` を実行してネットワークアップデート機能を使用するためにファームウェアを再書き込みする必要があります。_
+_トラブルシューティング：ホームフォルダに ssh キーが存在しない場合は、 `No SSH public keys found in ~/.ssh.` というエラーが表示されます。この場合、 `ssh-keygen` を実行してネットワークアップデート機能を使用するためにファームウェアを再書き込みする必要があります。_
 
-## LEDのコントロールを設定する
+## LED のコントロールを設定する
 
-LEDとやり取りするには、[nerves_leds](https://github.com/nerves-project/nerves_leds) パッケージをインストールする必要があります。これは、 `mix.exs` ファイルに `{:nerves_leds, "~> 0.8", targets: @all_targets},` を追加することによって行われます。
+LED とやり取りするには、[nerves_leds](https://github.com/nerves-project/nerves_leds) パッケージをインストールする必要があります。これは、 `mix.exs` ファイルに `{:nerves_leds, "~> 0.8", targets: @all_targets},` を追加することによって行われます。
 
-依存関係を設定したら、特定のデバイスのLEDリストを設定する必要があります。例えば、すべてのRaspberry Piモデルのために、ただ一つのLEDである `led0` が搭載されています。 `config/config.exs` に `config :nerves_leds, names: [green: "led0"]` を追加して使用しましょう。
+依存関係を設定したら、特定のデバイスの LED リストを設定する必要があります。例えば、すべての Raspberry Pi モデルのために、ただ一つの LED である `led0` が搭載されています。 `config/config.exs` に `config :nerves_leds, names: [green: "led0"]` を追加して使用しましょう。
 
-他のデバイスについては、[nerves_examplesプロジェクトで対応する部分](https://github.com/nerves-project/nerves_examples/tree/main/hello_leds/config) を参照してください。
+他のデバイスについては、[nerves_examples プロジェクトで対応する部分](https://github.com/nerves-project/nerves_examples/tree/main/blinky/config) を参照してください。
 
-LED自体を設定したら、どうにかしてそれを制御する必要があります。そのために、以下の内容を含む `lib/network_led/blinker.ex` にGenServerを追加します（[OTP Concurrency](/ja/lessons/advanced/otp_concurrency) レッスンのGenServerについての詳細を参照）。
+LED 自体を設定したら、どうにかしてそれを制御する必要があります。そのために、以下の内容を含む `lib/network_led/blinker.ex` に GenServer を追加します（[OTP Concurrency](/ja/lessons/advanced/otp_concurrency) レッスンの GenServer についての詳細を参照）。
 
 ```elixir
 defmodule NetworkLed.Blinker do
@@ -227,15 +228,15 @@ end
 
 これを有効にするには、それを `lib/network_led/application.ex` のスーパーバイザーツリーに追加する必要があります。`def children(_target) do` グループの下に `{NetworkLed.Blinker, name: NetworkLed.Blinker}` を追加してください。
 
-Nervesのアプリケーションには2つの異なるスーパーバイザーツリーがあります。1つはホストマシン用、もう1つは実際のデバイス用です。
+Nerves のアプリケーションには 2 つの異なるスーパーバイザーツリーがあります。1 つはホストマシン用、もう 1 つは実際のデバイス用です。
 
-この後、実際にファームウェアをアップロードし、ターゲットデバイス上でsshを使ってIExを実行することで `NetworkLed.Blinker.disable()` がLEDを消すこと（コードではデフォルトで有効になっています）、そして `NetworkLed.Blinker.enable()` がLEDを点けることを確認できます。
+この後、実際にファームウェアをアップロードし、ターゲットデバイス上で ssh を使って IEx を実行することで `NetworkLed.Blinker.disable()` が LED を消すこと（コードではデフォルトで有効になっています）、そして `NetworkLed.Blinker.enable()` が LED を点けることを確認できます。
 
-コマンドプロンプトからLEDを制御できます!
+コマンドプロンプトから LED を制御できます!
 
-今残っているパズルが欠けている唯一の部分は、ウェブインタフェースを介してLEDを制御することです。
+今残っているパズルが欠けている唯一の部分は、ウェブインタフェースを介して LED を制御することです。
 
-## Webサーバーを追加する
+## Web サーバーを追加する
 
 このステップでは、 `Plug.Router` を使います。思い出す必要がある場合は、[Plug](/ja/lessons/misc/plug) レッスンを読んでください。
 
@@ -268,6 +269,6 @@ end
 
 そして最後のステップ - アプリケーションのスーパーバイザーツリーに `{Plug.Cowboy, scheme: :http, plug: NetworkLed.Http, options: [port: 80]}` を追加します。
 
-ファームウェアのアップデート後に試すことができます！ `http://192.168.88.2/` はプレーンテキストの応答を返しており、 `http://192.168.88.2/disable` でLEDが消灯し、 `http://192.168.88.2/enable` でLEDが点灯します！
+ファームウェアのアップデート後に試すことができます！ `http://192.168.88.2/` はプレーンテキストの応答を返しており、 `http://192.168.88.2/disable` で LED が消灯し、 `http://192.168.88.2/enable` で LED が点灯します！
 
-Phoenixを使ったユーザーインターフェースをNervesアプリに導入することもできますが、それには[いくつかの調整が必要になります](https://github.com/nerves-project/nerves/blob/master/docs/User%20Interfaces.md#phoenix-web-interfaces)。
+Phoenix を使ったユーザーインターフェースを Nerves アプリに導入することもできますが、それには[いくつかの調整が必要になります](https://github.com/nerves-project/nerves/blob/master/docs/User%20Interfaces.md#phoenix-web-interfaces)。
